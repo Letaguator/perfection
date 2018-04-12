@@ -11,19 +11,19 @@
 
 #include <random>
 
-namespace perf {
 #include "string.hpp"
 #include "stack.hpp"
 #include "list.hpp"
 #include "linkedlist.hpp"
 #include "random.hpp"
 #include "timer.hpp"
+#include "scopetimer.hpp"
 #include "logging.hpp"
 #include "boolbyte.hpp"
 #include "utility.hpp"
-}
 
 #define repeat(underlying_n) for(int underlying_i = 0; underlying_i < underlying_n; ++underlying_i)
+#define TIME_SCOPE perf::ScopeTimer underlying_scopetimer
 #define null NULL
 
 bool INIT_PERFECTION() {

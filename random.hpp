@@ -9,11 +9,13 @@
 #ifndef random_hpp
 #define random_hpp
 
-namespace Random {
-    int getInt(int min, int max);
-    long getLong(long min, long max);
-    float getFloat();
-    double getDouble();
+namespace perf {
+    namespace Random {
+        int getInt(int min, int max);
+        long getLong(long min, long max);
+        float getFloat();
+        double getDouble();
+    }
 }
 
 

@@ -12,54 +12,55 @@
 #include <stdio.h>
 #include <iostream> // Used for isnumber, try to replace this
 
-
-
-template<typename T>
-struct pair {
-    T first;
-    T second;
-};
-
-template<typename T>
-T& max(T& first, T& second) {
-    if(first > second)
-        return first;
-    return second;
-}
-
-template<typename T>
-T& min(T& first, T& second) {
-    if(first < second)
-        return first;
-    return second;
-}
-
-inline int readInt() {
-    int value = 0;
+namespace perf {
+    template<typename T>
+    struct pair {
+        T first;
+        T second;
+    };
     
-    char current;
-    
-    current = getchar();
-    while(isnumber(current) && current != ' ') {
-        value += (current - 48);
-        value *= 10;
-        current = getchar() ;
+    template<typename T>
+    T& max(T& first, T& second) {
+        if(first > second)
+            return first;
+        return second;
     }
-    return (value/10);
+    
+    template<typename T>
+    T& min(T& first, T& second) {
+        if(first < second)
+            return first;
+        return second;
+    }
+    
+    inline int readInt() {
+        int value = 0;
+        
+        char current;
+        
+        current = getchar();
+        while(isnumber(current) && current != ' ') {
+            value += (current - 48);
+            value *= 10;
+            current = getchar() ;
+        }
+        return (value/10);
+    }
+    
+    inline long readLong() {
+        long value = 0l;
+        
+        char current;
+        
+        current = getchar();
+        while(isnumber(current) && current != ' ') {
+            value += (current - 48);
+            value *= 10l;
+            current = getchar() ;
+        }
+        return (value/10l);
+    }
 }
 
-inline long readLong() {
-    long value = 0l;
-    
-    char current;
-    
-    current = getchar();
-    while(isnumber(current) && current != ' ') {
-        value += (current - 48);
-        value *= 10l;
-        current = getchar() ;
-    }
-    return (value/10l);
-}
 
 #endif /* utility_hpp */

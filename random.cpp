@@ -8,6 +8,7 @@
 
 #include <random>
 #include "random.hpp"
+using namespace perf;
 
 const int floatGetter = 1000000 + 1;
 const int doubleGetter = 1000000000 + 1;

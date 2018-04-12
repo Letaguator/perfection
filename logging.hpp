@@ -11,18 +11,22 @@
 
 #include <iostream>
 
-template<typename T>
-inline void print(T value) {
-    std::cout << value;
+namespace perf {
+    template<typename T>
+    inline void print(T value) {
+        std::cout << value;
+    }
+    
+    template<typename T>
+    inline void println(T value) {
+        std::cout << value << '\n';
+    }
+    
+    inline void flush() {
+        std::cout << std::flush;
+    }
 }
 
-template<typename T>
-inline void println(T value) {
-    std::cout << value << '\n';
-}
 
-inline void flush() {
-    std::cout << std::flush;
-}
 
 #endif /* logging_hpp */

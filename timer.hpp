@@ -12,36 +12,40 @@
 #include <ctime>
 #include <chrono>
 
-class Timer {
-private:
-    std::chrono::steady_clock::time_point begin;
-    std::chrono::steady_clock::time_point end;
-public:
-    Timer() {
+namespace perf {
+    class Timer {
+    private:
+        std::chrono::steady_clock::time_point begin;
+        std::chrono::steady_clock::time_point end;
+    public:
+        Timer() {
+            
+        }
         
-    }
-    
-    ~Timer() {
+        ~Timer() {
+            
+        }
         
-    }
-    
-    void start() {
-        begin = std::chrono::high_resolution_clock::now();
-    }
-    
-    void stop() {
-        end = std::chrono::high_resolution_clock::now();
-    }
-    
-    double getSeconds() {
-        std::chrono::duration<double> duration = (end - begin);
-        return  duration.count();
-    }
-    
-    double getMilliseconds() {
-        std::chrono::duration<double> duration = (end - begin);
-        return  duration.count() * 1000.0;
-    }
-};
+        void start() {
+            begin = std::chrono::high_resolution_clock::now();
+        }
+        
+        void stop() {
+            end = std::chrono::high_resolution_clock::now();
+        }
+        
+        void out();
+        
+        double getSeconds() {
+            std::chrono::duration<double> duration = (end - begin);
+            return  duration.count();
+        }
+        
+        double getMilliseconds() {
+            std::chrono::duration<double> duration = (end - begin);
+            return  duration.count() * 1000.0;
+        }
+    };
+}
 
 #endif /* timer_hpp */

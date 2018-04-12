@@ -9,50 +9,53 @@
 #ifndef stack_hpp
 #define stack_hpp
 
-
-template<typename T>
-class Stack {
-public:
-    struct container;
-private:
-    container* current;
-public:
-    Stack() {
-        current = nullptr;
-    }
-    
-    ~Stack() {
-        while(!isEmpty())
-            pop();
-    }
-    
-    struct container {
-        T value;
-        container* prev;
+namespace perf {
+    template<typename T>
+    class Stack {
+    public:
+        struct container;
+    private:
+        container* current;
+    public:
+        Stack() {
+            current = nullptr;
+        }
         
-        container(T value, container* prev)
-        : value(value), prev(prev)
-        {
+        ~Stack() {
+            while(!isEmpty())
+                pop();
+        }
+        
+        struct container {
+            T value;
+            container* prev;
             
+            container(T value, container* prev)
+            : value(value), prev(prev)
+            {
+                
+            }
+        };
+        
+        bool isEmpty() {
+            return current == nullptr ? true : false;
+        }
+        
+        void stash(T value) {
+            container* ncurrent = new container(value, current);
+            current = ncurrent;
+        }
+        
+        T pop() {
+            T value = current->value;
+            container* ncurrent = current->prev;
+            delete current;
+            current = ncurrent;
+            return value;
         }
     };
-    
-    bool isEmpty() {
-        return current == nullptr ? true : false;
-    }
-    
-    void stash(T value) {
-        container* ncurrent = new container(value, current);
-        current = ncurrent;
-    }
-    
-    T pop() {
-        T value = current->value;
-        container* ncurrent = current->prev;
-        delete current;
-        current = ncurrent;
-        return value;
-    }
-};
+}
+
+
 
 #endif /* stack_hpp */

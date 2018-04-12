@@ -7,6 +7,7 @@
 //
 
 #include "boolbyte.hpp"
+using namespace perf;
 
 static const short binArray[8] = {
     0b00000001,

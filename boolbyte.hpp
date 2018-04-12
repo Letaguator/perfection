@@ -9,14 +9,16 @@
 #ifndef boolbyte_hpp
 #define boolbyte_hpp
 
-class BoolByte {
-private:
-    char data;
-public:
-    BoolByte();
-    const bool operator[](int i);
-    bool get(int i);
-    void set(int i, bool value);
-};
+namespace perf {
+    class BoolByte {
+    private:
+        char data;
+    public:
+        BoolByte();
+        const bool operator[](int i);
+        bool get(int i);
+        void set(int i, bool value);
+    };
+}
 
 #endif /* boolbyte_hpp */
